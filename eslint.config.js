@@ -9,7 +9,6 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
-import tailwind from 'eslint-plugin-tailwindcss';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -29,7 +28,6 @@ export default tseslint.config(
       react: reactPlugin,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      tailwind,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -75,10 +73,6 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
 
-      // TailwindCSS 관련 규칙
-      'tailwindcss/no-custom-classname': 'off',
-      'tailwindcss/classnames-order': 'off',
-
       // Prettier 적용
       'prettier/prettier': ['warn', {}, { usePrettierrc: true }],
     },
@@ -88,6 +82,12 @@ export default tseslint.config(
           project: './tsconfig.json', // TypeScript paths 참조
         },
       },
+    },
+  },
+  {
+    files: ['src/shared/components/ui/**/*.tsx'], // shadcn UI 폴더 예외 처리
+    rules: {
+      'react-refresh/only-export-components': 'off', // 예외 처리
     },
   },
   {
