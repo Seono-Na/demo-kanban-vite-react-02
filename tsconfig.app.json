@@ -10,7 +10,6 @@
     "paths": {
       "@/*": ["src/*"], // '@'를 'src' 폴더로 매핑
       "~components/*": ["src/components/*"] // '~components'를 'src/components'로 매핑
-      //필요에 따라 경로 alias 추가 (ex- "@assets/*": ["src/assets/*"])
     },
 
     /* Bundler mode */
